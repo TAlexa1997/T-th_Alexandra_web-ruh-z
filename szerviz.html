@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="urlap.js"></script>
+    <title>Chevrolet Webáruház</title>
+  </head>
+  <body>
+    <header>
+      <div class="kosar"><a href="">Kosár</a></div>
+      <div class="menu">
+        <ul>
+          <li><a href="">Kapcsolat</a></li>
+          <li><a href="http://127.0.0.1:5500/szerviz.html">Szerviz</a></li>
+          <li><a href="">Tartozékok</a></li>
+          <li>
+            <a href="http://127.0.0.1:5500/hasznaltautok.html"
+              >Használt autók</a
+            >
+          </li>
+          <li><a href="">Új autók</a></li>
+          <li><a href="http://127.0.0.1:5500/">Főoldal</a></li>
+        </ul>
+      </div>
+      <form>
+        <fieldset>
+          <legend>Szerviz bejelentkezés</legend>
+          <br />
+          <div class="adatok">
+            <div>
+              <label for="vname">Vezetéknév(*)</label>
+              <input type="text" id="vname" name="vname" />
+              <label for="kname">Keresztnév(*)</label>
+              <input type="text" id="kname" name="kname" />
+            </div>
+            <div>
+              <label for="email">Email </label>
+              <input class="email" type="email" id="email" name="email" />
+              <label for="tel">Telefonszám(*)</label>
+              <input type="number" id="tel" name="tel" />
+            </div>
+          </div>
+          <fieldset>
+            <legend>Autó adatai</legend>
+            <div class="auto_adatai">
+              <label for="auto_gy">Autó gyártási ideje(*)</label>
+              <select id="auto_gy" type="number" name="auto_gy"></select>
+              <label for="auto_tipus">Autó típusa(*)</label>
+              <select id="options" name="options">
+                <option value="Aveo">Aveo</option>
+                <option value="Blazer">Blazer</option>
+                <option value="Camaro">Camaro</option>
+                <option value="Captiva">Captiva</option>
+                <option value="Colorado">Colorado</option>
+                <option value="Corvette">Corvette</option>
+                <option value="Cruze">Cruze</option>
+                <option value="Equinox">Equinox</option>
+                <option value="Orlando">Orlando</option>
+                <option value="Silverado">Silverado</option>
+                <option value="Spark">Spark</option>
+                <option value="Suburban">Suburban</option>
+                <option value="Tahoe">Tahoe</option>
+                <option value="Trax">Trax</option>
+                <option value="Volt">Volt</option>
+              </select>
+              <label for="rendszam">Rendszám(*)</label>
+              <input type="text" id="rendszam" name="rendszam" />
+              <label for="alvazszam">Alvázszám(*)</label>
+              <input type="text" id="alvazszam" name="alvazszam" />
+              <label for="km">Kilométeróra állása</label>
+              <input type="number" id="km" name="km" />
+              <label for="idopont">Válasszon időpontot</label>
+              <input
+                class="idopont"
+                type="datetime-local"
+                id="idopont"
+                name="idopont"
+              />
+            </div>
+          </fieldset>
+          <br />
+          <p>
+            Tájékoztatjuk, hogy szervizünkben 1-2 hetes előjegyzéssel dolgozunk,
+            így az Ön által megjelölt időpont egyeztetése céljából kollégáink
+            hamarosan felveszik Önnel a kapcsolatot! Köszönjük megértését!
+          </p>
+          <br />
+          <label for="megjegyzes">Megjegyzés</label>
+          <input
+            class="megjegyzes"
+            type="text"
+            id="megjegyzes"
+            name="megjegyzes"
+          />
+          <br />
+          <br />
+          <p>
+            Kijelentem, hogy a Alexa-Car Kft. Adatkezelési Tájékoztatójában
+            foglaltakat elolvastam és megértettem.(*)
+          </p>
+          <input id="submit" type="submit" value="Bejelentkezés" />
+        </fieldset>
+      </form>
+    </header>
+  </body>
+</html>
