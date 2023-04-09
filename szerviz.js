@@ -198,12 +198,11 @@ const autoLista = [
 ];
 
 function auto_gy() {
-  var currentYear = new Date().getFullYear();
-  var select = document.getElementById("auto_gy");
-  for (var i = currentYear; i >= 1912; i--) {
-    var option = document.createElement("option");
-    option.value = i;
-    option.innerHTML = i;
-    select.appendChild(option);
+  let currentYear = new Date().getFullYear();
+  let select = $("#auto_gy");
+  for (let i = currentYear; i >= 1912; i--) {
+    let option = $(`<option value="${i}" >${i}</option>`);
+
+    select.append(option);
   }
 }

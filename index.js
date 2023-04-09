@@ -1,4 +1,5 @@
-window.addEventListener("load", init);
+//import { autoLista } from "./lista.js";
+
 const autoLista = [
   {
     Típus: "Captiva",
@@ -187,7 +188,7 @@ const autoLista = [
     Kivitel: "Városi terepjáró",
     Üzemanyag: "Benzin",
     Km: 1,
-    Szállítható: 5 ,
+    Szállítható: 5,
     Évjárat: 2023,
     Hengerűrtartalom: 1499,
     Teljesítmény: "175 kW, 203 LE",
@@ -197,19 +198,16 @@ const autoLista = [
   },
 ];
 
-function init() { 
-  const TABLE = document.querySelectorAll("table");
+$(document).ready(function () {
+  const TABLE = $("table");
   let txt2 = tabla();
-  TABLE[0].innerHTML = txt2;
-  
-}
-
-
+  TABLE.html(txt2);
+});
 
 function tabla() {
   let txt2 = "<table class='table-responsive'><thead class='table-dark'><tr>";
   for (const kulcs in autoLista[0]) {
-    txt2 += `<th>${kulcs}<button onclick="toggleSortDirection('${kulcs}')"></button></th>`;
+    txt2 += `<th><button onclick="toggleSortDirection('${kulcs}')">${kulcs}</button></th>`;
   }
   txt2 += `</tr></thead><tbody>`;
   for (let index = 0; index < autoLista.length; index++) {
@@ -277,4 +275,3 @@ function sortTable(kulcs, novekvo) {
     }
   }
 }
-

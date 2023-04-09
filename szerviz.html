@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <script src="urlap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="szerviz.css" />
+    <script src="szerviz.js"></script>
     <title>Chevrolet Webáruház</title>
   </head>
   <body>
@@ -21,7 +23,7 @@
               >Használt autók</a
             >
           </li>
-          <li><a href="">Új autók</a></li>
+          <li><a href="http://127.0.0.1:5500/ujautok.html">Új autók</a></li>
           <li><a href="http://127.0.0.1:5500/">Főoldal</a></li>
         </ul>
       </div>
@@ -98,12 +100,16 @@
           <br />
           <br />
           <p>
+            <label  id="adatvedelmi-tajekoztato" for="adatvedelmi-tajekoztato">
+              <input type="checkbox" name="form[adatvedelmi-tajekoztato][]" value="Elfogadom" id="adatvedelmi-tajekoztato">
+            </label>
             Kijelentem, hogy a Alexa-Car Kft. Adatkezelési Tájékoztatójában
             foglaltakat elolvastam és megértettem.(*)
           </p>
           <input id="submit" type="submit" value="Bejelentkezés" />
         </fieldset>
       </form>
+      <footer>Készítette: Tóth Alexandra</footer>
     </header>
   </body>
 </html>

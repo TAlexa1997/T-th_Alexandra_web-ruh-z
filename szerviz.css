@@ -1,0 +1,54 @@
+legend{
+    font-size: 28px;
+}
+
+input{
+    width: 200px;
+}
+
+.megjegyzes{
+    width: 100%;
+    height: 200px;
+}
+
+.submit{
+    font-size: 20px;
+    
+}
+
+.adatok{
+  display: grid;
+  grid-template-rows: 1fr 1fr ;
+  padding: 10px;
+}
+
+.adatok input{
+  width: 200px;
+}
+
+legend{
+  text-align: center;
+}
+
+.auto_adatai{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-self: center;
+}
+
+.auto_gyartas{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.auto_adatai label{
+  width: 150px;
+}
+
+.auto_adatai select{
+  padding-right: 10px;
+}
+
+div{
+  padding-bottom: 10px;
+}
