@@ -4,6 +4,8 @@ const kepLista = [
   "img/new_car/3.png",
 ];
 
+let kosar ={};
+
 const autoLista = [
   {
     Kép: " ",
@@ -17,7 +19,7 @@ const autoLista = [
     Teljesítmény: "226 kW, 307 LE",
     Hajtás: "Elsőkerék",
     Sebességváltó: "Automata",
-    Ára: 20590000,
+    Ára: 20_590_000,
   },
   {
     Kép: " ",
@@ -30,7 +32,7 @@ const autoLista = [
     Hengerűrtartalom: 2700,
     Teljesítmény: "231 kW, 310 LE",
     Hajtás: "Összkerék",
-    Sebességváltó: "Automata (8 fokozatú)",
+    Sebességváltó: "Automata ",
     Ára: 41590000,
   },
   {
@@ -44,7 +46,7 @@ const autoLista = [
     Hengerűrtartalom: 1499,
     Teljesítmény: "175 kW, 203 LE",
     Hajtás: "Összkerék",
-    Sebességváltó: "Automata (9 fokozatú)",
+    Sebességváltó: "Automata ",
     Ára: 46590000,
   },
 ];
@@ -53,19 +55,17 @@ $(document).ready(function () {
   const TABLE = $("table");
   let txt2 = tabla();
   TABLE.html(txt2);
+  const kosarbaGombok = document.querySelectorAll(".kosarba-gomb");
 });
 
 function tabla() {
-  let txt2 = "<table class='table-responsive'><thead class='table-dark'><tr>";
+  let txt2 = "<table class='dcf-table dcf-table-responsive dcf-table-bordered dcf-table-striped dcf-w-100%'><thead class='table-dark'><tr>";
   for (const kulcs in autoLista[0]) {
     txt2 += `<th><button onclick="toggleSortDirection('${kulcs}')">${kulcs}</button></th>`;
   }
-  //for (var i = 0; i < kepLista.length; i++) {
-  //txt2 += `<img src="${kepLista[i]}" alt="kep">`;
-  //}
   txt2 += `</tr></thead><tbody>`;
   for (let index = 0; index < autoLista.length; index++) {
-    txt2 += `<tr>`;
+    txt2 += `<tr id ='${autoLista[index]}'>`;
 
     for (const kulcs in autoLista[index]) {
       if (kulcs === "Kép") {
@@ -81,7 +81,9 @@ function tabla() {
       } else {
         txt2 += `<td>${autoLista[index][kulcs]}</td>`;
       }
+      
     }
+    txt2 += `<td><button class = "kosarba-gomb" onclick='kosarba(${autoLista[index]})'>Kosárba</button></td>`
     txt2 += `</tr>`;
   }
 
@@ -134,3 +136,66 @@ function sortTable(kulcs, novekvo) {
     }
   }
 }
+
+function kosarba(id) {
+  if (kosar[id]) {
+    kosar[id]++;
+  } else {
+    kosar[id] = 1;
+  }
+  kosarFrissit();
+  alert('Az autó hozzáadva a kosárhoz.');
+}
+/** 
+function kosarFrissit() {
+  var szam = 0;
+  for (var k in kosar) {
+    if (kosar.hasOwnProperty(k)) {
+      szam += kosar[k];
+    }
+  }
+  document.getElementById('kosarSzam').innerHTML = szam;
+}
+
+function kosarbaHozzaadas(termekNev, termekAr) {
+  let kosar = JSON.parse(localStorage.getItem("kosar")) || [];
+  let termek = kosar.find(function(t) {
+    return t.nev === termekNev;
+  });
+  if (termek) {
+    termek.mennyiseg++;
+  } else {
+    termek = {
+      nev: termekNev,
+      ar: termekAr,
+      mennyiseg: 1
+    };
+    kosar.push(termek);
+  }
+  localStorage.setItem("kosar", JSON.stringify(kosar));
+}
+
+// Frissíti a kosár tartalmát a jobb felső sarokban
+function kosarFrissites() {
+  let kosar = JSON.parse(localStorage.getItem("kosar")) || [];
+  let kosarElem = document.querySelector(".kosar");
+  let kosarSzoveg = "";
+  if (kosar.length > 0) {
+    let mennyiseg = 0;
+    let osszeg = 0;
+    kosar.forEach(function(termek) {
+      mennyiseg += termek.mennyiseg;
+      osszeg += termek.mennyiseg * parseFloat(termek.ar);
+    });
+    kosarSzoveg = mennyiseg + " db - " + osszeg.toFixed(2) + " Ft";
+  } else {
+    kosarSzoveg = "Az Ön kosara üres";
+  }
+  kosarElem.innerText = kosarSzoveg;
+}
+
+// Az oldal betöltésekor frissítjük a kosár tartalmát
+window.addEventListener("load", function() {
+  kosarFrissites();
+});
+*/
