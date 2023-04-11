@@ -161,7 +161,7 @@ const autoLista = [
     Típus: "Blazer",
     Kivitel: "Városi terepjáró",
     Üzemanyag: "Benzin",
-    Km: 1,
+    Km: 0,
     Szállítható: 5,
     Évjárat: 2021,
     Hengerűrtartalom: 3.598,
@@ -174,7 +174,7 @@ const autoLista = [
     Típus: "Colorado",
     Kivitel: "Pickup",
     Üzemanyag: "Benzin",
-    Km: 1,
+    Km: 0,
     Szállítható: 5,
     Évjárat: 2023,
     Hengerűrtartalom: 2700,
@@ -187,7 +187,7 @@ const autoLista = [
     Típus: "Equinox",
     Kivitel: "Városi terepjáró",
     Üzemanyag: "Benzin",
-    Km: 1,
+    Km: 0,
     Szállítható: 5,
     Évjárat: 2023,
     Hengerűrtartalom: 1499,
@@ -196,82 +196,203 @@ const autoLista = [
     Sebességváltó: "Automata (9 fokozatú)",
     Ára: 46590000,
   },
+  {
+    Típus: "Blazer",
+    Kivitel: "Városi terepjáró",
+    Üzemanyag: "Dízel",
+    Km: 0,
+    Szállítható: 5,
+    Évjárat: 2021,
+    Hengerűrtartalom: 3.598,
+    Teljesítmény: "226 kW, 307 LE",
+    Hajtás: "Elsőkerék",
+    Sebességváltó: "Automata",
+    Ára: 21090000,
+  },
+  {
+    Típus: "Colorado",
+    Kivitel: "Pickup",
+    Üzemanyag: "Dízel",
+    Km: 0,
+    Szállítható: 5,
+    Évjárat: 2023,
+    Hengerűrtartalom: 2700,
+    Teljesítmény: "231 kW, 310 LE",
+    Hajtás: "Összkerék",
+    Sebességváltó: "Automata (8 fokozatú)",
+    Ára: 42590000,
+  },
+  {
+    Típus: "Equinox",
+    Kivitel: "Városi terepjáró",
+    Üzemanyag: "Dízel",
+    Km: 0,
+    Szállítható: 5,
+    Évjárat: 2023,
+    Hengerűrtartalom: 1499,
+    Teljesítmény: "175 kW, 203 LE",
+    Hajtás: "Összkerék",
+    Sebességváltó: "Automata (9 fokozatú)",
+    Ára: 47590000,
+  },
 ];
 
 $(document).ready(function () {
-  const TABLE = $("table");
-  let txt2 = tabla();
-  TABLE.html(txt2);
+  const TABLE1 = $("table1");
+  let txt1 = tabla1();
+  TABLE1.html(txt1);
+  const TABLE2 = $("table2");
+  let txt2 = tabla2();
+  TABLE2.html(txt2);
+  const TABLE3 = $("table3");
+  let txt3 = tabla3();
+  TABLE3.html(txt3);
+  const TABLE4 = $("table4");
+  let txt4 = tabla4();
+  TABLE4.html(txt4);
 });
 
-function tabla() {
-  let txt2 = "<table class='table-responsive'><thead class='table-dark'><tr>";
+function tabla1() {
+  let txt1 = "<table class='table-responsive'><thead class='table-dark'><tr>";
   for (const kulcs in autoLista[0]) {
-    txt2 += `<th><button onclick="toggleSortDirection('${kulcs}')">${kulcs}</button></th>`;
+    txt1 += `<th onclick="toggleSortDirection('${kulcs}')">${kulcs}</th>`;
   }
-  txt2 += `</tr></thead><tbody>`;
-  for (let index = 0; index < autoLista.length; index++) {
-    txt2 += `<tr>`;
-    for (const kulcs in autoLista[index]) {
+  txt1 += `</tr></thead><tbody>`;
+  const szurtAutok = autoLista.filter(auto => auto.Üzemanyag === "Benzin" && auto.Km === 0);
+  for (let index = 0; index < szurtAutok.length; index++) {
+    txt1 += `<tr>`;
+    for (const kulcs in szurtAutok[index]) {
       if (kulcs === "Ára") {
-        txt2 += `<td>${autoLista[index][kulcs]} Ft</td>`;
+        txt1 += `<td>${szurtAutok[index][kulcs]} Ft</td>`;
       } else if (kulcs === "Hengerűrtartalom") {
-        txt2 += `<td>${autoLista[index][kulcs]} m3</td>`;
+        txt1 += `<td>${szurtAutok[index][kulcs]} m3</td>`;
       } else if (kulcs === "Szállítható"){
-        txt2 += `<td>${autoLista[index][kulcs]} fő</td>`;
+        txt1 += `<td>${szurtAutok[index][kulcs]} fő</td>`;
       } else{
-        txt2 += `<td>${autoLista[index][kulcs]}</td>`;
+        txt1 += `<td>${szurtAutok[index][kulcs]}</td>`;
       }
     }
+    txt1 += `<td><button class = "megrendeles-gomb">Megrendelés</button></td>`
+    txt1 += `</tr>`;
+  }
+
+txt1 += "</tbody></table>";
+return txt1;
+}
+
+function tabla2() {
+  let txt2 = "<table class='table-responsive'><thead class='table-dark'><tr>";
+  for (const kulcs in autoLista[0]) {
+    txt2 += `<th onclick="toggleSortDirection2('${kulcs}')">${kulcs}</th>`;
+  }
+  txt2 += `</tr></thead><tbody>`;
+  const szurtAutok = autoLista.filter(auto => auto.Üzemanyag === "Dízel" && auto.Km === 0);
+  for (let index = 0; index < szurtAutok.length; index++) {
+    txt2 += `<tr>`;
+    for (const kulcs in szurtAutok[index]) {
+      if (kulcs === "Ára") {
+        txt2 += `<td>${szurtAutok[index][kulcs]} Ft</td>`;
+      } else if (kulcs === "Hengerűrtartalom") {
+        txt2 += `<td>${szurtAutok[index][kulcs]} m3</td>`;
+      } else if (kulcs === "Szállítható"){
+        txt2 += `<td>${szurtAutok[index][kulcs]} fő</td>`;
+      } else{
+        txt2 += `<td>${szurtAutok[index][kulcs]}</td>`;
+      }
+    }
+    txt2 += `<td><button class = "megrendeles-gomb">Megrendelés</button></td>`
     txt2 += `</tr>`;
   }
 
-  txt2 += "</tbody></table>";
-  return txt2;
+txt2 += "</tbody></table>";
+return txt2;
 }
 
-let sortDirections = {};
-
-function toggleSortDirection(kulcs) {
-  if (sortDirections[kulcs] === "asc") {
-    sortDirections[kulcs] = "desc";
-  } else {
-    sortDirections[kulcs] = "asc";
+function tabla3() {
+  let txt3 = "<table class='table-responsive'><thead class='table-dark'><tr>";
+  for (const kulcs in autoLista[0]) {
+    txt3 += `<th onclick="toggleSortDirection('${kulcs}')">${kulcs}</th>`;
   }
-  sortTable(kulcs, sortDirections[kulcs] === "asc");
-}
-
-function sortTable(kulcs, novekvo) {
-  let sorrend = Object.keys(autoLista[0]).indexOf(kulcs);
-  let table, rows, eldontes, i, x, y, shouldSwitch;
-  table = document.querySelector("table");
-  eldontes = true;
-  while (eldontes) {
-    eldontes = false;
-    rows = table.rows;
-    for (i = 1; i < rows.length - 1; i++) {
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("td")[sorrend];
-      y = rows[i + 1].getElementsByTagName("td")[sorrend];
-      if (isNaN(x.innerHTML)) {
-        if (novekvo ? x.innerHTML > y.innerHTML : x.innerHTML < y.innerHTML) {
-          shouldSwitch = true;
-          break;
-        }
-      } else {
-        if (
-          novekvo
-            ? parseInt(x.innerHTML) > parseInt(y.innerHTML)
-            : parseInt(x.innerHTML) < parseInt(y.innerHTML)
-        ) {
-          shouldSwitch = true;
-          break;
-        }
+  txt3 += `</tr></thead><tbody>`;
+  const szurtAutok = autoLista.filter(auto => auto.Üzemanyag === "Benzin" && auto.Km > 0);
+  for (let index = 0; index < szurtAutok.length; index++) {
+    txt3 += `<tr>`;
+    for (const kulcs in szurtAutok[index]) {
+      if (kulcs === "Ára") {
+        txt3 += `<td>${szurtAutok[index][kulcs]} Ft</td>`;
+      } else if (kulcs === "Hengerűrtartalom") {
+        txt3 += `<td>${szurtAutok[index][kulcs]} m3</td>`;
+      } else if (kulcs === "Szállítható"){
+        txt3 += `<td>${szurtAutok[index][kulcs]} fő</td>`;
+      } else{
+        txt3 += `<td>${szurtAutok[index][kulcs]}</td>`;
       }
     }
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      eldontes = true;
-    }
+    txt3 += `<td><button class = "megrendeles-gomb">Megrendelés</button></td>`
+    txt3 += `</tr>`;
   }
+
+txt3 += "</tbody></table>";
+return txt3;
+}
+
+function tabla4() {
+  let txt4 = "<table class='table-responsive'><thead class='table-dark'><tr>";
+  for (const kulcs in autoLista[0]) {
+    txt4 += `<th onclick="toggleSortDirection('${kulcs}')">${kulcs}</th>`;
+  }
+  txt4 += `</tr></thead><tbody>`;
+  const szurtAutok = autoLista.filter(auto => auto.Üzemanyag === "Dízel" && auto.Km > 0);
+  for (let index = 0; index < szurtAutok.length; index++) {
+    txt4 += `<tr>`;
+    for (const kulcs in szurtAutok[index]) {
+      if (kulcs === "Ára") {
+        txt4 += `<td>${szurtAutok[index][kulcs]} Ft</td>`;
+      } else if (kulcs === "Hengerűrtartalom") {
+        txt4 += `<td>${szurtAutok[index][kulcs]} m3</td>`;
+      } else if (kulcs === "Szállítható"){
+        txt4 += `<td>${szurtAutok[index][kulcs]} fő</td>`;
+      } else{
+        txt4 += `<td>${szurtAutok[index][kulcs]}</td>`;
+      }
+    }
+    txt4 += `<td><button class = "megrendeles-gomb">Megrendelés</button></td>`
+    txt4 += `</tr>`;
+  }
+
+txt4 += "</tbody></table>";
+return txt4;
+}
+
+
+function toggleSortDirection(){
+  // Táblázat és th tagok kiválasztása
+const table = document.querySelector('table4');
+const ths = table.querySelectorAll('th');
+
+// Rendezési irány
+let sortOrder = false;
+
+// Eseménykezelők hozzáadása minden th taghoz
+ths.forEach((th) => {
+  th.addEventListener('click', () => {
+    // Azonosítja az oszlopot, amelyen alapulóan rendezni kell
+    const column = th.dataset.column;
+    const rows = Array.from(table.querySelectorAll('tr:nth-child(n+2)'));
+    
+    // Az adatok rendezése a megadott oszlop szerint
+    const sortDirection = sortOrder ? 1 : -1;
+    rows.sort((rowA, rowB) => {
+      const cellA = rowA.querySelector(`td:nth-child(${column})`);
+      const cellB = rowB.querySelector(`td:nth-child(${column})`);
+      return sortDirection * cellA.textContent.localeCompare(cellB.textContent);
+    });
+
+    // A rendezett adatok újra felvétele a táblázatba
+    table.querySelector('tbody').append(...rows);
+    
+    // A rendezési irány megfordítása
+    sortOrder = !sortOrder;
+  });
+});
 }
