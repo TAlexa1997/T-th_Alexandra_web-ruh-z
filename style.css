@@ -24,35 +24,46 @@ header {
 }
 
 
-a {
+button {
   float: right;
   font-size: 50px;
   color: gold;
   font-weight: bold;
   text-decoration: none;
-  padding: 10px;
+  padding: 20px;
   margin-left: 20px;
   margin: auto;
   transition: all 0.2s ease-in-out;
+  background-color: transparent;
+  border: none;
+  
 }
 
-a:hover {
+button:hover {
   text-transform: uppercase;
   color: yellow;
+  cursor: pointer;
 }
 
 table{
   margin: auto;
   text-align: center;
+  font-size: 16px;
+  width: 90%;
 }
 
- table button{
+.megrendeles-gomb{
+  color: black;
   text-decoration: none;
   border: none;
   font-size: 15px;
+  padding: 10px;
   margin: 0;
   font-weight: bold;
+  width: 100px;
+  height: 50px;
 }
+
 
 h1{
   font-size: 60px;
@@ -74,28 +85,136 @@ h2{
   border-top: 3px solid gold;
 }
 
-table{
-  font-size: 20px;
-  
-}
-
 tr,th,td{
   padding:6px;
 }
+
+form{
+  margin:auto;
+  width: 60%;
+}
+
+form div{
+  text-align: center;
+}
+
+fieldset{
+  padding: 10px;
+  margin: 20px;
+}
+
+legend{
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+label,span{
+  
+  font-weight: bold;
+  
+}
+
+label,input{
+  margin: 10px;
+}
+
+.submit{
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: gold;
+}
+
+
 
 footer {
   text-align: center;
   margin-top: 100px;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 800px) {
   /* tablet: */
-
+  header {
+    width: 100%;
+    border-bottom: none;
+    background-image: url(img/headerkép.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    margin: 0;
+  }
+  
+  button {
+    float: right;
+    font-size: 25px;
+    color: gold;
+    background-color: none;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px;
+    margin-left: 10px;
+    margin: auto;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  table{
+    margin: auto;
+    text-align: center;
+  }
+  
+  .megrendeles-gomb{
+    text-decoration: none;
+    border: none;
+    font-size: 4px;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  h1{
+    font-size: 30px;
+    text-align: center;
+    color:gold;
+  }
+  
+  h2{
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .hasznalt{
+    border-top: 1px solid black;
+    margin-top: 100px;
+  }
+  
+  .diz{
+    border-top: 1px dashed gold;
+  }
+  
+  table{
+    font-size: 5px;
+    
+  }
+  
+  tr,th,td{
+    padding: 3px;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
 
     
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 600px) {
   /* telefon: */
   header {
     width: 100%;
@@ -108,7 +227,7 @@ footer {
     margin: 0;
   }
   
-  a {
+  button {
     float: right;
     font-size: 25px;
     color: gold;
@@ -120,12 +239,13 @@ footer {
     transition: all 0.2s ease-in-out;
   }
   
-  a:hover {
+  button:hover {
     text-transform: uppercase;
     color: yellow;
   }
   
   table{
+    
     margin: auto;
     text-align: center;
   }

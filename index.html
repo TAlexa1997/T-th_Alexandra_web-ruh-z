@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <div class="kosar"><a href="http://127.0.0.1:5500/kosar.html">Kosár</a></div>
+      <div class="kosar"><button>Kosár</button></div>
       
         </ul>
       </div>
@@ -28,6 +28,83 @@
         <table3></table3>
         <h2 class="diz">Dízeles autók</h2>
         <table4></table4>
+    </div>
+    <div>
+      <aside>
+        <form>
+          <fieldset>
+            <legend>Autó felvitele a táblázatba</legend>
+            <fieldset >
+              <div>
+                <label for="autotipus">Autó típusa:</label>
+                <input type="text" id="autotipus" name="autotipus" required pattern="[A-Z][a-zA-Z\s]{2,}$"/>
+                <label for="kivitel">Kivitel:</label>
+                <input type="text" id="kivitel" name="kivitel" required pattern="[A-Z][a-zA-Z\s]{2,}$"/>
+              </div>
+              <div>
+                <label for="uzemanyag">Üzemanyag:</label>
+                <input type="radio" id="benzin" name="uzemanyag" value="benzin" />
+                <label for="benzin">Benzin</label>
+                <input type="radio" id="dizel" name="uzemanyag" value="dizel" />
+                <label for="dizel">Dízel</label>
+                <label for="km">Km óra állása:</label>
+                <input type="number" min="0" max="700000" value="0" id="km" name="km"/>
+              </div>
+            </fieldset>
+            <div>
+              <label>Szállítható személyek száma:</label>
+              <input type="radio" id="2" name="szallithato" value="2" />
+              <label for="2">2</label>
+              <input type="radio" id="3" name="szallithato" value="3" />
+              <label for="3">3</label>
+              <input type="radio" id="4" name="szallithato" value="4" />
+              <label for="4">4</label>
+              <input type="radio" id="5" name="szallithato" value="5" />
+              <label for="5">5</label>
+              <input type="radio" id="6" name="szallithato" value="6" />
+              <label for="6">6</label>
+              <input type="radio" id="7" name="szallithato" value="7" />
+              <label for="7">7</label>
+            </div>
+            <div>
+              <label for="evjarat">Évjárat:</label>
+              <input type="number" min="1900" max="2023"  id="evjarat" name="evjarat" />
+              <label for="hengerurtartalom">Hengerűrtartalom:</label>
+              <input type="number" id="hengerurtartalom" name="hengerurtartalom" />
+            </div>
+            <div>
+              <label>Teljesítmény</label>
+              <input type="number" id="kw" name="kw"/><span>kW</span>
+              <input type="number" id="le" name="le"/><span>LE</span>
+            </div>
+            <div>
+              <label>Hajtás:</label>
+              <select id="sebesseg" name="sebesseg">
+                <option value="elso">Első kerék</option>
+                <option value="hatso">Hátső kerék</option>
+                <option value="osszkerek">Összkerék</option>
+                <option value="kosszkerek">Kapcsolható összkerék</option>
+              </select>
+              <label for="sebesseg">Sebességváltó:</label>
+              <select id="sebesseg" name="sebesseg">
+                <option value="manualis">Manuális (5 fokozatú)</option>
+                <option value="manualis">Manuális (6 fokozatú)</option>
+                <option value="manualis">Manuális (7 fokozatú)</option>
+                <option value="automata">Automata (5 fokozatú)</option>
+                <option value="automata">Automata (6 fokozatú)</option>
+                <option value="automata">Automata (7 fokozatú)</option>
+                <option value="automata">Automata (8 fokozatú)</option>
+                <option value="automata">Automata (9 fokozatú)</option>
+              </select>
+            </div>
+            <div>
+              <label>Ár</label>
+              <input type="number"  min="1900" id="ar" name="ar"/><span>Ft</span>
+            </div>
+            <input class="submit" type="submit" value="Rögzítés" id="rogzites"></input>
+          </fieldset>
+        </form>
+      </aside>
     </div>
     <footer>Készítette: Tóth Alexandra</footer>
   </body>
