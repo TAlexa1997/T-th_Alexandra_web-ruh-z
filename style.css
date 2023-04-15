@@ -22,11 +22,19 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   height: 350px;
-  margin: 0;
+  margin: auto;
+}
+
+#myInput{
+  width: 20%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
 }
 
 
-button {
+.kosar {
   float: right;
   font-size: 50px;
   color: black;
@@ -41,7 +49,7 @@ button {
   
 }
 
-button:hover {
+.kosar:hover {
   text-transform: uppercase;
   color: yellow;
   cursor: pointer;
@@ -71,13 +79,17 @@ table{
   border: none;
   font-size: 15px;
   padding: 10px;
-  margin: 0;
+  margin-left: 20px;
+  margin: auto;
+  transition: all 0.2s ease-in-out;
+  background-color: transparent;
   font-weight: bold;
   width: 130px;
   height: 50px;
 }
 
 .torles{
+
   color: black;
   text-decoration: none;
   border: none;
@@ -90,18 +102,24 @@ table{
 }
 
 .megrendeles-gomb:hover{
+  text-transform: uppercase;
   color: black;
   background-color: gold;
+  cursor: pointer;
 }
 
 .torles:hover{
+  text-transform: uppercase;
   color: black;
   background-color: gold;
+  cursor: pointer;
 }
 
 .szerkesztes:hover{
+  text-transform: uppercase;
   color: black;
   background-color: gold;
+  cursor: pointer;
 }
 
 
@@ -176,21 +194,30 @@ label,input{
 footer {
   text-align: center;
   margin-top: 100px;
+  font-size: 15px;
 }
 
 @media only screen and (max-width: 900px) {
   /* tablet: */
   header {
-  
+    
     border-bottom: none;
     background-image: url(img/headerkép.jpg);
-    background-size: cover;
+    background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
   }
+
+  #myInput{
+    width: 20%;
+    font-size: 10px;
+    padding: 6px 10px 6px 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
   
-  button {
+  .kosar {
     font-size: 45px;
   }
 
@@ -244,8 +271,16 @@ footer {
     height: 100px;
     border-bottom: none;
   }
+
+  #myInput{
+    width: 20%;
+    font-size: 8px;
+    padding: 4px 8px 4px 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+  }
   
-  button {
+  .kosar {
     font-size: 20px;    
   }
 
@@ -360,6 +395,14 @@ footer {
     width: 100%;
     height: 100px;
     border-bottom: none;
+  }
+
+  #myInput{
+    width: 20%;
+    font-size: 4px;
+    padding: 2px 3px 2px 7px;
+    border: 1px solid #ddd;
+    margin-bottom: 6px;
   }
   
   button {

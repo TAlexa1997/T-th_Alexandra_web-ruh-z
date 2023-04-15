@@ -1,5 +1,3 @@
-//import { autoLista } from "./lista.js";
-
 const autoLista = [
   {
     Típus: "Captiva",
@@ -237,22 +235,22 @@ const autoLista = [
   },
 ];
 
-const autoKep = {
-  Colorado: "img/new_car/Colorado.jpg",
-  Blazer: "img/new_car/Blazer.jpg",
-  Equinox: "img/new_car/Equinox.jpg",
-  Spark: "img/used_car/Spark.jpg",
-  Aveo: "img/used_car/Aveo.jpg",
-  Camaro: "img/used_car/Camaro.jpg",
-  Silverado: "img/used_car/Silverado.jpg",
-  Suburban: "img/used_car/Suburban.jpg",
-  Tahoe: "img/used_car/Tahoe.jpg",
-  Corvette: "img/used_car/Corvette.jpg",
-  Captiva: "img/used_car/Captiva.jpg",
-  Trax: "img/used_car/Trax.jpg",
-  Cruze: "img/used_car/Cruze.jpg",
-  Orlando: "img/used_car/Orlando.jpg",
-};
+const autoKep = [
+  "img/new_car/Colorado.jpg",
+  "img/new_car/Blazer.jpg",
+  "img/new_car/Equinox.jpg",
+  "img/used_car/Spark.jpg",
+  "img/used_car/Aveo.jpg",
+  "img/used_car/Camaro.jpg",
+  "img/used_car/Silverado.jpg",
+  "img/used_car/Suburban.jpg",
+  "img/used_car/Tahoe.jpg",
+  "img/used_car/Corvette.jpg",
+  "img/used_car/Captiva.jpg",
+  "img/used_car/Trax.jpg",
+  "img/used_car/Cruze.jpg",
+  "img/used_car/Orlando.jpg",
+];
 
 $(document).ready(function () {
   const TABLE1 = $("table1");
@@ -271,7 +269,8 @@ $(document).ready(function () {
 
 
 function tabla1() {
-  let txt1 = "<table id ='tabla1' class='table-responsive'><thead class='table-dark'><tr>";
+  let txt1 =
+    "<table id ='tabla1' class='table-responsive'><thead class='table-dark'><tr>";
   for (const kulcs in autoLista[0]) {
     txt1 += `<th onclick="toggleSortDirection(1,'${kulcs}')">${kulcs}</th>`;
   }
@@ -288,7 +287,7 @@ function tabla1() {
         txt1 += `<td>${szurtAutok[index][kulcs]} m3</td>`;
       } else if (kulcs === "Szállítható") {
         txt1 += `<td>${szurtAutok[index][kulcs]} fő</td>`;
-      } else if (kulcs === "Típus"){
+      } else if (kulcs === "Típus") {
         txt1 += `<td><a>${szurtAutok[index][kulcs]}<a></td>`;
       } else {
         txt1 += `<td>${szurtAutok[index][kulcs]}</td>`;
@@ -304,11 +303,9 @@ function tabla1() {
   return txt1;
 }
 
-
-
-
 function tabla2() {
-  let txt2 = "<table id ='tabla2' class='table-responsive'><thead class='table-dark'><tr>";
+  let txt2 =
+    "<table id ='tabla2' class='table-responsive'><thead class='table-dark'><tr>";
   for (const kulcs in autoLista[0]) {
     txt2 += `<th onclick="toggleSortDirection(2,'${kulcs}')">${kulcs}</th>`;
   }
@@ -340,7 +337,8 @@ function tabla2() {
 }
 
 function tabla3() {
-  let txt3 = "<table id ='tabla3' class='table-responsive'><thead class='table-dark'><tr>";
+  let txt3 =
+    "<table id ='tabla3' class='table-responsive'><thead class='table-dark'><tr>";
   for (const kulcs in autoLista[0]) {
     txt3 += `<th onclick="toggleSortDirection(3,'${kulcs}')">${kulcs}</th>`;
   }
@@ -372,14 +370,15 @@ function tabla3() {
 }
 
 function tabla4() {
-  let txt4 = "<table id='tabla4' class='table-responsive'><thead class='table-dark'><tr>";
+  let txt4 =
+    "<table id='tabla4' class='table-responsive'><thead class='table-dark'><tr>";
   for (const kulcs in autoLista[0]) {
     txt4 += `<th onclick="toggleSortDirection(4,'${kulcs}')">${kulcs}</th>`;
   }
   txt4 += `</tr></thead><tbody>`;
-  const szurtAutok = autoLista.filter(
-    (auto) => auto.Üzemanyag === "Dízel" && auto.Km > 0
-  ).reverse(); 
+  const szurtAutok = autoLista
+    .filter((auto) => auto.Üzemanyag === "Dízel" && auto.Km > 0)
+    .reverse();
   for (let index = 0; index < szurtAutok.length; index++) {
     txt4 += `<tr>`;
     for (const kulcs in szurtAutok[index]) {
@@ -424,7 +423,7 @@ function toggleSortDirection(tabla, kulcs) {
       sortDirections = sortDirections4;
       break;
     default:
-      console.error('Nem létező táblázat!');
+      console.error("Nem létező táblázat!");
       return;
   }
 
@@ -458,12 +457,11 @@ function sortTable(tabla, kulcs, novekvo) {
       sortDirections = sortDirections4;
       break;
     default:
-      console.error('Nem létező táblázat!');
+      console.error("Nem létező táblázat!");
       return;
   }
 
   console.log("sortDirections in sortTable:", sortDirections);
-  
 
   let sorrend = Object.keys(autoLista[0]).indexOf(kulcs);
   let table, rows, eldontes, i, x, y, shouldSwitch;
@@ -472,7 +470,7 @@ function sortTable(tabla, kulcs, novekvo) {
   while (eldontes) {
     eldontes = false;
     rows = table.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
+    for (i = 1; i < rows.length - 1; i++) {
       shouldSwitch = false;
       x = rows[i].getElementsByTagName("td")[sorrend];
       y = rows[i + 1].getElementsByTagName("td")[sorrend];
@@ -506,9 +504,13 @@ function sortTable(tabla, kulcs, novekvo) {
 function bevitel() {
   const tipusInput = document.getElementById("autotipus");
   const kivitelInput = document.getElementById("kivitel");
-  const uzemanyagInput = document.querySelector('input[name="uzemanyag"]:checked');
+  const uzemanyagInput = document.querySelector(
+    'input[name="uzemanyag"]:checked'
+  );
   const kmInput = document.getElementById("km");
-  const szallithatoInput = document.querySelector('input[name="szallithato"]:checked');
+  const szallithatoInput = document.querySelector(
+    'input[name="szallithato"]:checked'
+  );
   const evjaratInput = document.getElementById("evjarat");
   const hengerurtartalomInput = document.getElementById("hengerurtartalom");
   const kwInput = document.getElementById("kw");
@@ -516,7 +518,6 @@ function bevitel() {
   const hajtasInput = document.getElementById("hajtas");
   const sebessegvaltoInput = document.getElementById("sebessegvalto");
   const arInput = document.getElementById("ar");
-
 
   autoLista.push({
     Típus: tipusInput.value,
@@ -530,12 +531,29 @@ function bevitel() {
     Teljesítmény_LE: leInput.value,
     Hajtás: hajtasInput.value,
     Sebességváltó: sebessegvaltoInput.value,
-    Ár: arInput.value
+    Ár: arInput.value,
   });
- 
+
   localStorage.setItem("autoLista", JSON.stringify(autoLista));
+}
 
+function myFunction() {
+  var input, filter, table, tr, td, i, j, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  tables = document.querySelectorAll("#tabla1, #tabla2, #tabla3, #tabla4");
+  for (j = 0; j < tables.length; j++) {
+    tr = tables[j].getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
   }
-
-
-
+}
